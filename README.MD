@@ -1,3 +1,8 @@
+# Reborn Esp Library
+- This is an esp library i made using billboardguis (mostly for gradienting)
+- Probably has detection issues (no coregui)
+- Will get improved in time.
+
 # Define the main library
 ```lua
 local RebornLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/priestwillbe/reborn-esp-library/refs/heads/main/main.lua"))()
