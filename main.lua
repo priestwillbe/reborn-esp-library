@@ -13,7 +13,7 @@ function AnimateGradient(Gradient)
 	TweenService:Create(Gradient, TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1, true), {Rotation = 180}):Play()
 end
 
-function EspLibrary:CreateBoxEsp(Player, Gradient1, Gradient2)
+function CreateBoxEsp(Player, Gradient1, Gradient2)
 	if Player == LocalPlayer then return end
 	if Player.Character == nil then return end
 
@@ -47,7 +47,7 @@ function EspLibrary:CreateBoxEsp(Player, Gradient1, Gradient2)
 	self.EspTable[Player].Box = Billboard
 end
 
-function EspLibrary:CreateHealthBar(Player, Gradient1, Gradient2)
+function CreateHealthBar(Player, Gradient1, Gradient2)
 	if Player == LocalPlayer then return end
 	if Player.Character == nil then return end
 
@@ -107,7 +107,7 @@ function EspLibrary:CreateHealthBar(Player, Gradient1, Gradient2)
 	self.EspTable[Player].Health = Billboard
 end
 
-function EspLibrary:CreateNameEsp(Player)
+function CreateNameEsp(Player)
 	if Player == LocalPlayer then return end
 	if Player.Character == nil then return end
 
@@ -152,5 +152,3 @@ function EspLibrary:CreateNameEsp(Player)
 	self.EspTable[Player] = self.EspTable[Player] or {}
 	self.EspTable[Player].Name = Billboard
 end
-
-return EspLibrary
