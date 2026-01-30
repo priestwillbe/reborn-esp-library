@@ -1,5 +1,6 @@
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
+local RunService = game:GetService("RunService")
 local Camera = workspace.CurrentCamera
 local LocalPlayer = Players.LocalPlayer
 local CharacterHeightScale = 6
@@ -14,7 +15,9 @@ function AnimateGradient(Gradient)
 end
 
 function EspLibrary:CreateBoxEsp(Player, Gradient1, Gradient2)
-	if Player.Character == nil then return end
+	if Player.Character == nil then 
+		return 
+	end
 
 	local Root = Player.Character:WaitForChild("HumanoidRootPart")
 
@@ -47,7 +50,9 @@ function EspLibrary:CreateBoxEsp(Player, Gradient1, Gradient2)
 end
 
 function EspLibrary:CreateHealthBar(Player, Gradient1, Gradient2)
-	if Player.Character == nil then return end
+	if Player.Character == nil then 
+		return 
+	end
 
 	local Character = Player.Character
 	local Humanoid = Character:WaitForChild("Humanoid")
@@ -106,7 +111,9 @@ function EspLibrary:CreateHealthBar(Player, Gradient1, Gradient2)
 end
 
 function EspLibrary:CreateNameEsp(Player)
-	if Player.Character == nil then return end
+	if Player.Character == nil then 
+		return 
+	end
 
 	local Character = Player.Character
 	local Root = Character:WaitForChild("HumanoidRootPart")
@@ -136,14 +143,14 @@ function EspLibrary:CreateNameEsp(Player)
 	Stroke.Parent = Text
 
 	local Con
-	Con = game:GetService("RunService").RenderStepped:Connect(function()
+	Con = RunService.RenderStepped:Connect(function()
 		if not Root.Parent then
 			Con:Disconnect()
 			return
 		end
 
 		local Distance = (Camera.CFrame.Position - Root.Position).Magnitude
-		Text.TextSize = 10 - (10 - 10) * math.clamp((Distance - 10) / (math.huge - 10), 0, 1)
+		Text.TextSize = 10 - 0 * math.clamp((Distance - 10) / (math.huge - 10), 0, 1)
 	end)
 
 	self.EspTable[Player] = self.EspTable[Player] or {}
